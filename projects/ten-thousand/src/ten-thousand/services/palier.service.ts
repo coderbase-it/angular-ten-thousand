@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
-import {IPlayer} from '../interfaces/player';
 import {Palier} from '../interfaces/palier';
+import {IPlayer} from '../interfaces/player';
+
 import {PlayersService} from './players.service';
 
 @Injectable({
