@@ -10,8 +10,11 @@ export class PlayersService {
 
     constructor(private _stockage: StockageService) {}
 
-    register(player: Player) {
-        this.players.push({score: 0, ...player});
+    register(playersObject: {players: string[]}) {
+        const players: Player[] = playersObject.players.map(name => {
+            return {name, score: 0};
+        });
+        this.players = players;
         this._stockage.sauvegardeDeLaPartie(this.players);
     }
 }
