@@ -13,6 +13,6 @@
         <dice [number]="dice"></dice>
     </ng-container>
     <div *ngIf="score != 0 && score % 100 == 0 && dices.length >= 1">
-        <button>Arrêter</button>
+        <button (click)="palierService.valider(score, players[0])">Arrêter</button>
     </div>
 </div>

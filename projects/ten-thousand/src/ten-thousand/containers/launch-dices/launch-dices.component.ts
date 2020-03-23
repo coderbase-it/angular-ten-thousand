@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {IPlayer} from '../../interfaces/player';
 import {PlayersService} from '../../services/players.service';
+import {PalierService} from '../../services/palier.service';
 
 @Component({
     selector: 'launch-dices',
@@ -14,7 +15,10 @@ export class LaunchDicesComponent implements OnInit {
     public dicesScore: number[] = [];
     public sock = false;
     public players: IPlayer[] = [];
-    constructor(private playerService: PlayersService) {}
+    constructor(
+        private playerService: PlayersService,
+        public palierService: PalierService,
+    ) {}
 
     ngOnInit(): void {
         this.players = this.playerService.players;
