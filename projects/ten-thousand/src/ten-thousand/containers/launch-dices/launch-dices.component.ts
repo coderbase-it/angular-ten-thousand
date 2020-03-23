@@ -101,6 +101,10 @@ export class LaunchDicesComponent implements OnInit {
         if (!score) {
             this.sock = true;
         }
+
+        if (this.numbersDices === 0) {
+            this.dices = [0];
+        }
     }
 
     clearDice(index: number) {

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators, FormArray} from '@angular/forms';
 import {Router} from '@angular/router';
 import {PlayersService} from '../../services/players.service';
 
@@ -23,8 +23,13 @@ export class AddPlayerComponent implements OnInit {
 
     createForm() {
         this.myform = this.fb.group({
-            name: '',
+            players: this.fb.array([]),
         });
+        this.addPlayer();
+    }
+
+    get playersArray() {
+        return this.myform.get('players') as FormArray;
     }
 
     register() {
@@ -32,5 +37,14 @@ export class AddPlayerComponent implements OnInit {
         console.log(this.myform.value);
         this.playerService.register(this.myform.value);
         this.router.navigate(['/ten-thousand', 'game']);
+    }
+
+    addPlayer() {
+        this.playersArray.push(
+            this.fb.control('', [Validators.required, Validators.minLength(1)]),
+        );
+    }
+    removePlayer(index: number) {
+        this.playersArray.removeAt(index);
     }
 }
