@@ -111,4 +111,7 @@ export class LaunchDicesComponent implements OnInit {
         // réajustement du nombre de dé à lancé
         this.numbersDices -= 1;
     }
+    get scorePartie() {
+        return this.score;
+    }
 }

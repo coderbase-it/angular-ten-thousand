@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Player} from '../interfaces/player';
+import {StockageService} from '../services/stockage.service';
 
 @Injectable({
     providedIn: 'root',
@@ -7,9 +8,10 @@ import {Player} from '../interfaces/player';
 export class PlayersService {
     public players: Player[] = [];
 
-    constructor() {}
+    constructor(private _stockage: StockageService) {}
 
     register(player: Player) {
         this.players.push({score: 0, ...player});
+        this._stockage.sauvegardeDeLaPartie(this.players);
     }
 }
