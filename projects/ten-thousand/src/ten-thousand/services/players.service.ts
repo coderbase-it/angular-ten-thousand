@@ -1,17 +1,15 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Player} from '../interfaces/player';
 
-
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root',
 })
 export class PlayersService {
     public players: Player[] = [];
 
-  constructor() { }
+    constructor() {}
 
-    register(player: Player){
-        this.players.push(player)
-
+    register(player: Player) {
+        this.players.push({score: 0, ...player});
     }
 }
