@@ -35,7 +35,7 @@ export class AddPlayerComponent implements OnInit {
     register() {
         // tslint:disable-next-line:no-console
         console.log(this.myform.value);
-        this.playerService.register(this.myform.value);
+        this.playerService.register(this.myform.value.players);
         this.router.navigate(['/ten-thousand', 'game']);
     }
 
