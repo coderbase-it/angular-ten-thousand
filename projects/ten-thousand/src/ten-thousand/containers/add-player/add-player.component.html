@@ -1,7 +1,9 @@
 <form (ngSubmit)="register()" [formGroup]="myform">
     <ng-container formArrayName="players">
         <div *ngFor="let player of playersArray.controls; let i = index">
-            <label [for]="'input' + i">Nom du joueur {{ i + 1 }}:</label>
+            <label [for]="'input' + i"
+                >{{ 'PLAYER_NAME' | translate: {number: i + 1} }}:</label
+            >
             <input type="text" [id]="'input' + i" [formControlName]="i" />
             <button
                 type="button"
@@ -15,5 +17,10 @@
     <div>
         <button type="button" (click)="addPlayer()">+</button>
     </div>
-    <button type="submit">Enregister</button>
+    <button type="submit">{{ 'SAVE' | translate }}</button>
 </form>
+
+<div>
+    <button (click)="changeLanguage('fr')">FR</button>
+    <button (click)="changeLanguage('en')">EN</button>
+</div>

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators, FormArray} from '@angular/forms';
 import {Router} from '@angular/router';
 import {PlayersService} from '../../services/players.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
     selector: 'add-player',
@@ -15,6 +16,7 @@ export class AddPlayerComponent implements OnInit {
         private fb: FormBuilder,
         private router: Router,
         private playerService: PlayersService,
+        private translateService: TranslateService,
     ) {}
 
     ngOnInit(): void {
@@ -47,5 +49,9 @@ export class AddPlayerComponent implements OnInit {
     }
     removePlayer(index: number) {
         this.playersArray.removeAt(index);
+    }
+
+    changeLanguage(lang: string) {
+        this.translateService.use(lang);
     }
 }
