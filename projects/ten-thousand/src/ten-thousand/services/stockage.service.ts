@@ -10,9 +10,22 @@ export class StockageService {
     sauvegardeDeLaPartie(player: IPlayer[]): void {
         localStorage.setItem('tenThousand', JSON.stringify(player));
     }
-    miseAjourScore() {}
+    miseAjourDeLaPartie() {
+        // const partie = localStorage.getItem('tenThousand');
+    }
+    recupererLaPartie(): string | null {
+        const partie = localStorage.getItem('tenThousand');
+
+        return partie;
+    }
     supprimerLaPartie() {
         localStorage.removeItem('tenThousand');
     }
+    // here
+    /* partieSauvegarder(): boolean {
+        return localStorage.getItem('tenThousand')
+            ? localStorage.getItem('tenThousand').length > 0
+            : false;
+    } */
     constructor() {}
 }
