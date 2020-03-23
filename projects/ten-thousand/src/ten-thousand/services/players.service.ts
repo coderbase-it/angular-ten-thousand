@@ -1,17 +1,21 @@
 import {Injectable} from '@angular/core';
-import {Player} from '../interfaces/player';
+import {IPlayer} from '../interfaces/player';
 import {StockageService} from '../services/stockage.service';
 
 @Injectable({
     providedIn: 'root',
 })
 export class PlayersService {
-    public players: Player[] = [];
+    public players: IPlayer[] = [];
 
     constructor(private _stockage: StockageService) {}
 
-    register(player: Player) {
-        this.players.push({score: 0, ...player});
+    register(playerNames: string[]) {
+        const players: IPlayer[] = playerNames.map(name => {
+            return {name, score: 0, paliers: []};
+        });
+
+        this.players = players;
         this._stockage.sauvegardeDeLaPartie(this.players);
     }
 }

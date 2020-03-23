@@ -1,4 +1,19 @@
 <form (ngSubmit)="register()" [formGroup]="myform">
-    <input type="text" formControlName="name" placeholder="nom du joueur ">
-    <button type="submit"> Enregister</button>
+    <ng-container formArrayName="players">
+        <div *ngFor="let player of playersArray.controls; let i = index">
+            <label [for]="'input' + i">Nom du joueur {{ i + 1 }}:</label>
+            <input type="text" [id]="'input' + i" [formControlName]="i" />
+            <button
+                type="button"
+                *ngIf="playersArray.value.length > 1"
+                (click)="removePlayer(i)"
+            >
+                -
+            </button>
+        </div>
+    </ng-container>
+    <div>
+        <button type="button" (click)="addPlayer()">+</button>
+    </div>
+    <button type="submit">Enregister</button>
 </form>
