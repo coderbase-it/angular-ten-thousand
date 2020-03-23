@@ -12,8 +12,7 @@
     <ng-container *ngFor="let dice of dicesScore">
         <dice [number]="dice"></dice>
     </ng-container>
-    <div>
-        <button>Continuer</button>
+    <div *ngIf="score != 0 && score % 100 == 0 && numbersDices >= 1">
         <button>Arrêter</button>
     </div>
 </div>
