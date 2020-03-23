@@ -1,7 +1,4 @@
-
-<div>
-    listes des joueurs {{ players | json }}
-</div>
+<div>listes des joueurs {{ players | json }}</div>
 
 <button (click)="rollDices()">Roll dices</button>
 <ng-container *ngFor="let dice of dices">
@@ -11,10 +8,12 @@
     Chaussette
 </div>
 <div>
-   score  {{ score}}
+    score {{ score }}
     <ng-container *ngFor="let dice of dicesScore">
-    <dice [number]="dice"></dice>
-</ng-container>
-
-
+        <dice [number]="dice"></dice>
+    </ng-container>
+    <div>
+        <button>Continuer</button>
+        <button>Arrêter</button>
+    </div>
 </div>
