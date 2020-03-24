@@ -6,7 +6,8 @@ import {BehaviorSubject} from 'rxjs';
 })
 export class CalculService {
     @Input() numbersDices = 5;
-    public dices: number[] = [];
+    private dices: number[] = [];
+    public dices$: BehaviorSubject<number[]> = new BehaviorSubject<number[]>([]);
     public score$ = new BehaviorSubject(0);
     public dicesScore: number[] = [];
     public sock$ = new BehaviorSubject(false);
@@ -146,6 +147,8 @@ export class CalculService {
             // réinitilise le nombre de dés
             this.numbersDices = 5;
         }
+
+        this.dices$.next(this.dices);
     }
 
     clearDice(index: number) {
