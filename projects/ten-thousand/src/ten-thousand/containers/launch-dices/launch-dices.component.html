@@ -12,6 +12,7 @@
 </div>
 <div>
     score {{ score$ | async }}
+    <h1>Dés du score</h1>
     <ng-container *ngFor="let dice of dicesScore">
         <dice [number]="dice"></dice>
     </ng-container>
