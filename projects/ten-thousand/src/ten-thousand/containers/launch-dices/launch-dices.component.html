@@ -1,5 +1,7 @@
 <div>listes des joueurs {{ players | json }}</div>
 
+<div>Joueur courant : {{ currentPlayer$ | async | json }}</div>
+
 <button (click)="rollDices()">Roll dices</button>
 <ng-container *ngFor="let dice of dices$ | async">
     <dice [number]="dice"></dice>

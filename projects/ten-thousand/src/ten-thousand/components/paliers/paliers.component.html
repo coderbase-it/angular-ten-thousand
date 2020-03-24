@@ -1,18 +1,17 @@
-<pre>{{players | json }}</pre>
-<div *ngFor="let player in players">
-
+<pre>{{ players | json }}</pre>
+<div *ngFor="let player; in: players">
     <ul>
-        <li *ngFor="let palier of player.paliers" [ngClass]="{ 'dead': !palier.valide }">
+        <li *ngFor="let palier of player.paliers" [ngClass]="{dead: !palier.valide}">
             <del *ngIf="!palier.valide">{{ palier.valeur }}</del>
 
             <ng-container *ngIf="palier.valide">
                 {{ palier.valeur }}
-                <fa-icon *ngFor="let sock of createArray(palier.nombreSocks)"
-                         [icon]="faSocks" size="3x"></fa-icon>
+                <fa-icon
+                    *ngFor="let sock of createArray(palier.nombreSocks)"
+                    [icon]="faSocks"
+                    size="3x"
+                ></fa-icon>
             </ng-container>
-
-
         </li>
     </ul>
-
 </div>

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {IPlayer} from '../../interfaces/player';
 import {BehaviorSubject} from 'rxjs';
 import {CalculService} from '../../services/calcul.service';
@@ -10,25 +10,26 @@ import {PalierService} from '../../services/palier.service';
     templateUrl: './launch-dices.component.html',
     styleUrls: ['./launch-dices.component.css'],
 })
-export class LaunchDicesComponent implements OnInit {
-    public dices$: BehaviorSubject<number[]> = new BehaviorSubject<number[]>([]);
-    public score$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
-    public dicesScore: number[] = [];
-    public sock$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-    public players: IPlayer[] = [];
+export class LaunchDicesComponent {
+    public dices$: BehaviorSubject<number[]>;
+    public score$: BehaviorSubject<number>;
+    public dicesScore: number[];
+    public sock$: BehaviorSubject<boolean>;
+    public players: IPlayer[];
+    public currentPlayer$: BehaviorSubject<IPlayer>;
     constructor(
         private playerService: PlayersService,
         private calculService: CalculService,
         private palierService: PalierService,
-    ) {}
-
-    ngOnInit(): void {
+    ) {
         this.players = this.playerService.players;
         this.dices$ = this.calculService.dices$;
         this.score$ = this.calculService.score$;
         this.dicesScore = this.calculService.dicesScore;
         this.sock$ = this.calculService.sock$;
+        this.currentPlayer$ = this.playerService.currentPlayer$;
     }
+
     rollDices() {
         this.calculService.rollDices();
     }
