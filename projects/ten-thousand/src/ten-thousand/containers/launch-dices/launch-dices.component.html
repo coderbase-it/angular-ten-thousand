@@ -15,7 +15,10 @@
     </ng-container>
     <ng-container *ngIf="score$ | async as score">
         <div *ngIf="score != 0 && score % 100 == 0 && !(sock$ | async)">
-            <button>Arrêter</button>
+            <button (click)="validerPalier(score)">Valider</button>
         </div>
     </ng-container>
+</div>
+<div>
+    <paliers></paliers>
 </div>

@@ -3,6 +3,7 @@ import {IPlayer} from '../../interfaces/player';
 import {CalculService} from '../../services/calcul.service';
 import {PlayersService} from '../../services/players.service';
 import {BehaviorSubject} from 'rxjs';
+import {PalierService} from "../../services/palier.service";
 
 @Component({
     selector: 'launch-dices',
@@ -18,6 +19,7 @@ export class LaunchDicesComponent implements OnInit {
     constructor(
         private playerService: PlayersService,
         private calculService: CalculService,
+        private palierService: PalierService,
     ) {}
 
     ngOnInit(): void {
@@ -33,5 +35,11 @@ export class LaunchDicesComponent implements OnInit {
 
     get scorePartie() {
         return this.score$;
+    }
+
+    validerPalier(score: number) {
+
+        // TODO ajoute le player courant
+        //this.palierService.valider(score, );
     }
 }

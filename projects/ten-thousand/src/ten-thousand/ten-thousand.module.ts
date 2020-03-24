@@ -6,10 +6,11 @@ import { DiceComponent } from './components/dice/dice.component';
 import { AddPlayerComponent } from './containers/add-player/add-player.component';
 import { LaunchDicesComponent } from './containers/launch-dices/launch-dices.component';
 import {TenThousandRoutingModule} from './ten-thousand-routing.module';
+import { PaliersComponent } from './components/paliers/paliers.component';
 
 
 @NgModule({
-  declarations: [DiceComponent, LaunchDicesComponent, AddPlayerComponent],
+  declarations: [DiceComponent, LaunchDicesComponent, AddPlayerComponent, PaliersComponent],
   imports: [
     CommonModule, FontAwesomeModule, TenThousandRoutingModule, ReactiveFormsModule
   ],
