@@ -4,15 +4,15 @@
 <ng-container *ngFor="let dice of dices">
     <dice [number]="dice"></dice>
 </ng-container>
-<div *ngIf="sock">
+<div *ngIf="sock$ | async">
     Chaussette
 </div>
 <div>
-    score {{ score }}
+    score {{ score$ | async }}
     <ng-container *ngFor="let dice of dicesScore">
         <dice [number]="dice"></dice>
     </ng-container>
-    <div *ngIf="score != 0 && score % 100 == 0 && dices.length >= 1">
+    <div *ngIf="score != 0 && score % 100 == 0">
         <button>Arrêter</button>
     </div>
 </div>
