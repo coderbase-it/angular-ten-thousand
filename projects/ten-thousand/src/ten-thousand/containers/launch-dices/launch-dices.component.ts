@@ -11,9 +11,9 @@ import {BehaviorSubject} from 'rxjs';
 })
 export class LaunchDicesComponent implements OnInit {
     public dices: number[] = [];
-    public score$: BehaviorSubject<number>;
+    public score$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
     public dicesScore: number[] = [];
-    public sock$: BehaviorSubject<boolean>;
+    public sock$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
     public players: IPlayer[] = [];
     constructor(
         private playerService: PlayersService,

@@ -100,6 +100,10 @@ export class CalculService {
 
         if (!score) {
             this.sock$.next(true);
+            // ajout les dés de la chaussette au dé finaux
+            this.dicesScore.push(...this.dices);
+            // réinitilise le nombre de dés
+            this.numbersDices = 5;
         }
     }
 

@@ -4,6 +4,7 @@
 <ng-container *ngFor="let dice of dices">
     <dice [number]="dice"></dice>
 </ng-container>
+
 <div *ngIf="sock$ | async">
     Chaussette
 </div>
@@ -12,7 +13,9 @@
     <ng-container *ngFor="let dice of dicesScore">
         <dice [number]="dice"></dice>
     </ng-container>
-    <div *ngIf="score != 0 && score % 100 == 0">
-        <button>Arrêter</button>
-    </div>
+    <ng-container *ngIf="score$ | async as score">
+        <div *ngIf="score != 0 && score % 100 == 0 && !(sock$ | async)">
+            <button>Arrêter</button>
+        </div>
+    </ng-container>
 </div>
