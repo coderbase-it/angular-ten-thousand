@@ -30,6 +30,6 @@ export class StockageService {
             'tenThousand',
         ) as string);
 
-        return partie.length > 0;
+        return partie ? partie.length > 0 : false;
     }
 }
