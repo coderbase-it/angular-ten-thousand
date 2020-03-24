@@ -221,18 +221,6 @@
                         ],
                         "exclude": ["**/node_modules/**"]
                     }
-                },
-                "e2e": {
-                    "builder": "@angular-devkit/build-angular:protractor",
-                    "options": {
-                        "protractorConfig": "projects/test-lib/e2e/protractor.conf.js",
-                        "devServerTarget": "test-lib:serve"
-                    },
-                    "configurations": {
-                        "production": {
-                            "devServerTarget": "test-lib:serve:production"
-                        }
-                    }
                 }
             }
         }
