@@ -4,6 +4,8 @@
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
+        "start:en": "ng serve --aot --i18nFile=projects/locale/messages.en.xlf --i18nFormat=xlf --locale en",
+        "start:es": "ng serve --aot --i18nFile=projects/locale/messages.es.xlf --i18nFormat=xlf --locale es",
         "start:ssr": "npm run build:demo:ssr && npm run serve:ssr",
         "start:prerender": "npm run build:demo:prerender && npm run serve:prerender",
         "build": "ng build",
