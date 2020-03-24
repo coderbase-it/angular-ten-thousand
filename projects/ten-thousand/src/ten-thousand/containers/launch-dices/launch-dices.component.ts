@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {IPlayer} from '../../interfaces/player';
+import {BehaviorSubject} from 'rxjs';
 import {CalculService} from '../../services/calcul.service';
 import {PlayersService} from '../../services/players.service';
-import {BehaviorSubject} from 'rxjs';
-import {PalierService} from "../../services/palier.service";
+import {PalierService} from '../../services/palier.service';
 
 @Component({
     selector: 'launch-dices',
@@ -11,7 +11,7 @@ import {PalierService} from "../../services/palier.service";
     styleUrls: ['./launch-dices.component.css'],
 })
 export class LaunchDicesComponent implements OnInit {
-    public dices: number[] = [];
+    public dices$: BehaviorSubject<number[]> = new BehaviorSubject<number[]>([]);
     public score$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
     public dicesScore: number[] = [];
     public sock$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
@@ -24,7 +24,7 @@ export class LaunchDicesComponent implements OnInit {
 
     ngOnInit(): void {
         this.players = this.playerService.players;
-        this.dices = this.calculService.dices;
+        this.dices$ = this.calculService.dices$;
         this.score$ = this.calculService.score$;
         this.dicesScore = this.calculService.dicesScore;
         this.sock$ = this.calculService.sock$;
@@ -38,7 +38,6 @@ export class LaunchDicesComponent implements OnInit {
     }
 
     validerPalier(score: number) {
-
         // TODO ajoute le player courant
         //this.palierService.valider(score, );
     }
