@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
+import {BehaviorSubject} from 'rxjs';
 import {IPlayer} from '../interfaces/player';
 import {StockageService} from '../services/stockage.service';
-import {BehaviorSubject} from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
@@ -15,7 +15,12 @@ export class PlayersService {
     public players: IPlayer[] = [];
 
     private currentIndex = 0;
-    constructor(private _stockage: StockageService) {}
+    constructor(private _stockage: StockageService) {
+        if (this._stockage.partieSauvegarder()) {
+            this.players = this._stockage.getPartieSauvegarder();
+            this.currentPlayer$.next(this.players.reverse()[0]);
+        }
+    }
 
     register(playerNames: string[]) {
         const players: IPlayer[] = playerNames.map(name => {
@@ -23,8 +28,8 @@ export class PlayersService {
         });
 
         this.players = players;
-        this._stockage.sauvegardeDeLaPartie(this.players);
         this.nextPlayer();
+        this._stockage.sauvegardeDeLaPartie(this.players);
     }
 
     nextPlayer() {

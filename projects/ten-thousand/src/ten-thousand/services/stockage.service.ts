@@ -1,31 +1,35 @@
 import {Injectable} from '@angular/core';
 import {IPlayer} from '../interfaces/player';
+
 @Injectable({
     providedIn: 'root',
 })
 export class StockageService {
-    sauvegardeJoueur() {
-        // localStorage.setItem(player.name, player.score.toString());
-    }
+    constructor() {}
+
     sauvegardeDeLaPartie(player: IPlayer[]): void {
         localStorage.setItem('tenThousand', JSON.stringify(player));
     }
-    miseAjourDeLaPartie() {
-        // const partie = localStorage.getItem('tenThousand');
-    }
-    recupererLaPartie(): string | null {
-        const partie = localStorage.getItem('tenThousand');
+    // miseAjourDeLaPartie(score: BehaviorSubject<number>, player: BehaviorSubject<IPlayer>) {
+    // const partie: IPlayer[] = JSON.parse(localStorage.getItem('tenThousand') as string);
+    // const lastscore = score.getValue();
+    // const lastplayer = player.getValue();
+    // const lastpartie = partie.find(player => player.name === lastplayer.name);
 
-        return partie;
-    }
+    // lastpartie?.score = lastscore;
+
+    //}
     supprimerLaPartie() {
         localStorage.removeItem('tenThousand');
     }
-    // here
-    partieSauvegarder() {
-        /* return localStorage.getItem('tenThousand')
-            ? localStorage.getItem('tenThousand').length > 0
-            : false; */
+    getPartieSauvegarder(): IPlayer[] {
+        return JSON.parse(localStorage.getItem('tenThousand') as string);
     }
-    constructor() {}
+    partieSauvegarder(): boolean {
+        const partie: IPlayer[] = JSON.parse(localStorage.getItem(
+            'tenThousand',
+        ) as string);
+
+        return partie.length > 0;
+    }
 }

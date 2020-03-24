@@ -32,7 +32,7 @@ export const appRoutes: Routes = [
     imports: [
         RouterModule.forRoot(appRoutes, {
             initialNavigation: 'enabled',
-            enableTracing: true,
+            // enableTracing: true,
             // preloadingStrategy: PreloadAllModules,
         }),
     ],

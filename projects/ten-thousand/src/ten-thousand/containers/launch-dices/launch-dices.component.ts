@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
-import {IPlayer} from '../../interfaces/player';
 import {BehaviorSubject} from 'rxjs';
+import {IPlayer} from '../../interfaces/player';
 import {CalculService} from '../../services/calcul.service';
-import {PlayersService} from '../../services/players.service';
 import {PalierService} from '../../services/palier.service';
+import {PlayersService} from '../../services/players.service';
 
 @Component({
     selector: 'launch-dices',
@@ -32,6 +32,7 @@ export class LaunchDicesComponent {
 
     rollDices() {
         this.calculService.rollDices();
+        // this._stockage.miseAjourDeLaPartie(this.score$, this.currentPlayer$);
     }
 
     get scorePartie() {

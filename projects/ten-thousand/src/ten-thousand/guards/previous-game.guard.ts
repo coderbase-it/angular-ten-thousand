@@ -1,14 +1,15 @@
 import {Injectable} from '@angular/core';
-import {CanActivate, CanDeactivate, CanLoad} from '@angular/router';
+import {CanActivate, CanDeactivate, CanLoad, Router} from '@angular/router';
 import {Observable, of} from 'rxjs';
 import {AddPlayerComponent} from '../containers/add-player/add-player.component';
+import {StockageService} from '../services/stockage.service';
 
 @Injectable({
     providedIn: 'root',
 })
 export class PreviousGameGuard
     implements CanActivate, CanDeactivate<AddPlayerComponent>, CanLoad {
-    constructor() {}
+    constructor(private _stockage: StockageService, private _router: Router) {}
 
     canLoad(): boolean | Observable<boolean> | Promise<boolean> {
         return true;
@@ -18,10 +19,17 @@ export class PreviousGameGuard
         return component.canDeactivate()
             ? window.confirm('Etes-vous sûr de quitter ?')
             : true;
-        //throw new Error("Method not implemented.");
     }
 
     canActivate(): Observable<boolean> | Promise<boolean> {
-        return of(true);
+        if (this._stockage.partieSauvegarder()) {
+            this._router.navigate(['/ten-thousand', 'game']);
+
+            return of(true);
+        } else {
+            this._router.navigate(['/ten-thousand', 'add']);
+
+            return of(true);
+        }
     }
 }
