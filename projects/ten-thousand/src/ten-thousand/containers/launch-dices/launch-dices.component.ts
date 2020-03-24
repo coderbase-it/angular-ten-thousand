@@ -39,7 +39,6 @@ export class LaunchDicesComponent {
     }
 
     validerPalier(score: number) {
-        // TODO ajoute le player courant
-        //this.palierService.valider(score, );
+        this.palierService.valider(score);
     }
 }

@@ -11,7 +11,7 @@ export class PalierService {
     constructor(private playersService: PlayersService) {}
 
     // permet de valider un palier en lui passant la valeur du palier
-    valider(valeur: number, player: IPlayer) {
+    valider(valeur: number) {
         // avant la validation il faut vérifier si on écrase pas un palier d'un concurrents
         if (valeur) {
             this.playersService.players.forEach(player => {
@@ -23,7 +23,27 @@ export class PalierService {
                 });
             });
             // on valide le palier
-            player.paliers.push(new Palier(valeur));
+            const player = this.playersService.players.filter(
+                p => p.name === this.playersService.currentPlayer$.value.name,
+            );
+            if (player.length > 0) {
+                const p = player[0];
+                p.paliers.push(new Palier(valeur));
+            }
+        }
+    }
+
+    applySock() {
+        const player = this.playersService.players.filter(
+            p => p.name === this.playersService.currentPlayer$.value.name,
+        );
+        if (player.length > 0) {
+            const p = player[0];
+            const lastPalier = p.paliers.pop();
+            if (lastPalier) {
+                lastPalier.deactivate();
+                p.paliers.push(lastPalier);
+            }
         }
     }
 }
