@@ -1,5 +1,8 @@
 {
     "compileOnSave": false,
+    "angularCompilerOptions": {
+        "enableIvy": false
+    },
     "compilerOptions": {
         "baseUrl": "./",
         "downlevelIteration": true,
@@ -17,24 +20,12 @@
         "noUnusedParameters": true,
         "noUnusedLocals": true,
         "target": "es2015",
-        "typeRoots": [
-            "node_modules/@types"
-        ],
-        "lib": [
-            "es2018",
-            "dom"
-        ],
+        "typeRoots": ["node_modules/@types"],
+        "lib": ["es2018", "dom"],
         "paths": {
-            "ten-thousand": [
-                "projects/ten-thousand/src/public-api"
-            ]
+            "ten-thousand": ["projects/ten-thousand/src/public-api"]
         }
     },
-    "files": [
-        "projects/demo/src/main.browser.ts",
-        "projects/demo/src/polyfills.ts"
-    ],
-    "include": [
-        "projects/demo/src/**/*.d.ts"
-    ]
+    "files": ["projects/demo/src/main.browser.ts", "projects/demo/src/polyfills.ts"],
+    "include": ["projects/demo/src/**/*.d.ts"]
 }
