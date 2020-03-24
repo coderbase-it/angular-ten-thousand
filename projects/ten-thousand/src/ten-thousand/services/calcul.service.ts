@@ -77,7 +77,48 @@ export class CalculService {
                 this.dices = this.dices.filter(i => i !== combinaison.val);
             }
         });
-        // On calcul les carré
+
+        const carres = [
+            {val: 1, value: 10},
+            {val: 2, value: 2},
+            {val: 3, value: 3},
+            {val: 4, value: 4},
+            {val: 5, value: 5},
+        ];
+
+        // on calcule les carrés
+        carres.forEach(combinaison => {
+            if (this.dices.filter(i => i === combinaison.val).length === 4) {
+                const cache = this.score$.value;
+
+                this.score$.next(cache + combinaison.value * 100);
+                this.numbersDices -= 4;
+                this.dicesScore = this.dices.filter(i => i === combinaison.val);
+                // on doit supprimer les dés qui on cette valeur
+                this.dices = this.dices.filter(i => i !== combinaison.val);
+            }
+        });
+
+        const yam = [
+            {val: 1, value: 10},
+            {val: 2, value: 2},
+            {val: 3, value: 3},
+            {val: 4, value: 4},
+            {val: 5, value: 5},
+        ];
+
+        // on calcule les yams
+        yam.forEach(combinaison => {
+            if (this.dices.filter(i => i === combinaison.val).length === 5) {
+                const cache = this.score$.value;
+
+                this.score$.next(cache + combinaison.value * 100);
+                this.numbersDices -= 5;
+                this.dicesScore = this.dices.filter(i => i === combinaison.val);
+                // on doit supprimer les dés qui on cette valeur
+                this.dices = this.dices.filter(i => i !== combinaison.val);
+            }
+        });
 
         this.dices.forEach((dice, index) => {
             // on doit ici faire les calculs , 1 ou 5
