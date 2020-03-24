@@ -1,5 +1,5 @@
 <pre>{{ players | json }}</pre>
-<div *ngFor="let player; in: players">
+<div *ngFor="let player of players">
     <ul>
         <li *ngFor="let palier of player.paliers" [ngClass]="{dead: !palier.valide}">
             <del *ngIf="!palier.valide">{{ palier.valeur }}</del>

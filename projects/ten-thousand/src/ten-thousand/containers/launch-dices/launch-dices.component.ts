@@ -40,5 +40,7 @@ export class LaunchDicesComponent {
 
     validerPalier(score: number) {
         this.palierService.valider(score);
+        this.currentPlayer$.value.score += score;
+        this.playerService.nextPlayer();
     }
 }
