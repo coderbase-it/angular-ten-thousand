@@ -3,10 +3,14 @@
 
     <ul>
         <li *ngFor="let palier of player.paliers" [ngClass]="{ 'dead': !palier.valide }">
-                {{ palier.valeur }}
+            <del *ngIf="!palier.valide">{{ palier.valeur }}</del>
 
-            <fa-icon *ngFor="let sock of createArray(palier.nombreSocks)"
-                      [icon]="faSocks" size="3x"></fa-icon>
+            <ng-container *ngIf="palier.valide">
+                {{ palier.valeur }}
+                <fa-icon *ngFor="let sock of createArray(palier.nombreSocks)"
+                         [icon]="faSocks" size="3x"></fa-icon>
+            </ng-container>
+
 
         </li>
     </ul>
