@@ -12,7 +12,7 @@ import {PRERENDERED_ROUTES} from './static.paths';
 
 enableProdMode();
 
-const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require('../../server/main');
+const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require('../server/main');
 const DEMO_FOLDER = join(process.cwd(), 'dist', 'demo', 'browser');
 const index = readFileSync(
     join(process.cwd(), 'dist', 'demo', 'browser', 'index.html'),
