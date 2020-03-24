@@ -1,5 +1,7 @@
 import {Injectable, Input} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
+import {PlayersService} from './players.service';
+import {IPlayer} from '../interfaces/player';
 
 @Injectable({
     providedIn: 'root',
@@ -11,6 +13,11 @@ export class CalculService {
     public score$ = new BehaviorSubject(0);
     public dicesScore: number[] = [];
     public sock$ = new BehaviorSubject(false);
+    public currentPlayer$: BehaviorSubject<IPlayer>;
+
+    constructor(private playerService: PlayersService) {
+        this.currentPlayer$ = this.playerService.currentPlayer$;
+    }
 
     rollDices() {
         if (this.sock$.value) {
@@ -18,6 +25,7 @@ export class CalculService {
             alert('new player');
             this.score$.next(0);
             this.dicesScore = [];
+            this.playerService.nextPlayer();
         }
 
         // reinitialise le tableau
@@ -159,5 +167,4 @@ export class CalculService {
         // réajustement du nombre de dé à lancé
         this.numbersDices -= 1;
     }
-    constructor() {}
 }
