@@ -1,9 +1,27 @@
 <blockquote>
-    Import from your library in this demo project as if you were using it as an NPM package
+    Import from your library in this demo project as if you were using it as an NPM
+    package
 </blockquote>
 <blockquote>
-    <a routerLink="." style="margin-right: 16px">Static component</a>
-    <a routerLink="/lazy">Lazy component</a>
+    <a
+        routerLink="."
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}"
+        style="margin-right: 16px"
+        >Static component</a
+    >
+    <a
+        routerLink="/lazy"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}"
+        >Lazy component</a
+    >
+    <a
+        [routerLink]="['/lazy', 'child']"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}"
+        >Lazy child</a
+    >
 </blockquote>
 <blockquote>
     <router-outlet></router-outlet>

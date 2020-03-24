@@ -22,10 +22,10 @@ export class StockageService {
         localStorage.removeItem('tenThousand');
     }
     // here
-    /* partieSauvegarder(): boolean {
-        return localStorage.getItem('tenThousand')
+    partieSauvegarder() {
+        /* return localStorage.getItem('tenThousand')
             ? localStorage.getItem('tenThousand').length > 0
-            : false;
-    } */
+            : false; */
+    }
     constructor() {}
 }
