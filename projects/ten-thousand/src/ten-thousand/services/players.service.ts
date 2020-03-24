@@ -28,7 +28,6 @@ export class PlayersService {
     }
 
     nextPlayer() {
-        this.currentPlayer$.next(this.players[this.currentIndex]);
-        this.currentIndex = this.currentIndex + (1 % this.players.length);
+        this.currentPlayer$.next(this.players[this.currentIndex++ % this.players.length]);
     }
 }
