@@ -36,9 +36,19 @@
         "publish:ten-thousand": "npm publish ./dist/ten-thousand"
     },
     "description": "This is a template project to develop, create and open-source Angular libraries with demos",
-    "keywords": ["angular", "ng", "workspace", "library", "starter", "tinkoff"],
+    "keywords": [
+        "angular",
+        "ng",
+        "workspace",
+        "library",
+        "starter",
+        "tinkoff"
+    ],
     "license": "Apache-2.0",
-    "authors": ["Roman Sedov <r.sedov@tinkoff.ru>", "Alex Inkin <a.inkin@tinkoff.ru>"],
+    "authors": [
+        "Roman Sedov <r.sedov@tinkoff.ru>",
+        "Alex Inkin <a.inkin@tinkoff.ru>"
+    ],
     "repository": "https://github.com/TinkoffCreditSystems/angular-library-starter",
     "bugs": "https://github.com/TinkoffCreditSystems/angular-library-starter/issues",
     "homepage": "https://github.com/TinkoffCreditSystems/angular-library-starter#README",
@@ -53,6 +63,7 @@
         "@angular/platform-browser-dynamic": "^9.0.7",
         "@angular/platform-server": "^9.0.7",
         "@angular/router": "^9.0.7",
+        "@datorama/akita": "^4.21.0",
         "@fortawesome/angular-fontawesome": "^0.6.0",
         "@fortawesome/fontawesome-svg-core": "^1.2.27",
         "@fortawesome/free-brands-svg-icons": "^5.12.1",
@@ -75,6 +86,7 @@
         "@angular/cli": "^9.0.7",
         "@angular/compiler-cli": "^9.0.7",
         "@angular/language-service": "^9.0.7",
+        "@datorama/akita-ngdevtools": "^3.0.2",
         "@tinkoff/linters": "^0.4.0",
         "@types/express": "4.16.1",
         "@types/express-serve-static-core": "4.16.2",
@@ -110,7 +122,10 @@
         }
     },
     "lint-staged": {
-        "*.{js,ts,html,md,less,json}": ["prettier --write", "git add"],
+        "*.{js,ts,html,md,less,json}": [
+            "prettier --write",
+            "git add"
+        ],
         "*.ts": "tslint"
     },
     "standard-version": {

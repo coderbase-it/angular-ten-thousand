@@ -5,6 +5,7 @@ import {CalculService} from '../../services/calcul.service';
 import {PalierService} from '../../services/palier.service';
 import {PlayersService} from '../../services/players.service';
 import {StockageService} from '../../services/stockage.service';
+import {PlayerQuery} from '../../store/player.query';
 
 @Component({
     selector: 'launch-dices',
@@ -18,12 +19,14 @@ export class LaunchDicesComponent {
     public sock$: BehaviorSubject<boolean>;
     public players$: BehaviorSubject<IPlayer[]>;
     public currentPlayer$: BehaviorSubject<IPlayer>;
+    public storePlayers$: any;
 
     constructor(
         private playerService: PlayersService,
         private calculService: CalculService,
         private palierService: PalierService,
         private stockageService: StockageService,
+        private storePlayerQuery: PlayerQuery,
     ) {
         this.players$ = this.playerService.players$;
         this.dices$ = this.calculService.dices$;
@@ -31,6 +34,8 @@ export class LaunchDicesComponent {
         this.dicesScore = this.calculService.dicesScore;
         this.sock$ = this.calculService.sock$;
         this.currentPlayer$ = this.playerService.currentPlayer$;
+
+        this.storePlayers$ = this.storePlayerQuery.players$;
     }
 
     rollDices() {

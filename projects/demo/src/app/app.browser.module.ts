@@ -5,6 +5,8 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app.routes';
 import {StaticModule} from './modules/static/static.module';
+import {AkitaNgDevtools} from '@datorama/akita-ngdevtools';
+// import { environment } from '../environments/environment';
 
 @NgModule({
     bootstrap: [AppComponent],
@@ -13,6 +15,8 @@ import {StaticModule} from './modules/static/static.module';
         AppRoutingModule,
         StaticModule,
         FontAwesomeModule,
+        AkitaNgDevtools.forRoot(),
+        // environment.production ? [] : AkitaNgDevtools.forRoot(),
     ],
     declarations: [AppComponent],
     providers: [

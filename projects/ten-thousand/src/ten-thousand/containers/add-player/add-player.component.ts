@@ -2,6 +2,7 @@ import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {PlayersService} from '../../services/players.service';
+import {PlayerService} from '../../store/player.service';
 
 @Component({
     selector: 'add-player',
@@ -16,6 +17,7 @@ export class AddPlayerComponent implements OnInit {
         private fb: FormBuilder,
         private router: Router,
         private playerService: PlayersService,
+        private storePlayerService: PlayerService,
     ) {}
 
     ngOnInit(): void {
@@ -37,6 +39,7 @@ export class AddPlayerComponent implements OnInit {
         // tslint:disable-next-line:no-console
         if (this.myform.valid) {
             this.playerService.register(this.myform.value.players);
+            this.storePlayerService.setPlayers(this.myform.value.players);
             this.router.navigate(['/ten-thousand', 'game']);
         }
     }
