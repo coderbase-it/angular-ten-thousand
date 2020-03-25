@@ -10,15 +10,22 @@ export class StockageService {
     sauvegardeDeLaPartie(player: IPlayer[]): void {
         localStorage.setItem('tenThousand', JSON.stringify(player));
     }
-    // miseAjourDeLaPartie(score: BehaviorSubject<number>, player: BehaviorSubject<IPlayer>) {
-    // const partie: IPlayer[] = JSON.parse(localStorage.getItem('tenThousand') as string);
-    // const lastscore = score.getValue();
-    // const lastplayer = player.getValue();
-    // const lastpartie = partie.find(player => player.name === lastplayer.name);
-
-    // lastpartie?.score = lastscore;
-
-    //}
+    /* miseAjourDeLaPartie(
+        score: number,
+        lastplayer: BehaviorSubject<IPlayer>,
+        paliers: Palier[] = [],
+    ) {
+        // const partie: IPlayer[] = JSON.parse(localStorage.getItem('tenThousand') as string) || [];
+        // const namePlayer = lastplayer.getValue().name;
+        /* const newPartie: IPlayer = {
+        name: namePlayer,
+        score: score,
+        paliers: paliers,
+    }; */
+    // partie.
+    // this.sauvegardeDeLaPartie(partie.push(lastpartie));
+    // console.log(lastpartie);
+    // }
     supprimerLaPartie() {
         localStorage.removeItem('tenThousand');
     }

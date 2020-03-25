@@ -1,7 +1,7 @@
 import {Injectable, Input} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
-import {PlayersService} from './players.service';
 import {IPlayer} from '../interfaces/player';
+import {PlayersService} from './players.service';
 
 @Injectable({
     providedIn: 'root',
@@ -157,6 +157,7 @@ export class CalculService {
         }
 
         this.dices$.next(this.dices);
+        //this._stockage.miseAjourDeLaPartie(this.score$.getValue(), this.currentPlayer$);
     }
 
     clearDice(index: number) {
@@ -166,5 +167,8 @@ export class CalculService {
         delete this.dices[index];
         // réajustement du nombre de dé à lancé
         this.numbersDices -= 1;
+    }
+    get score(): number {
+        return this.score$.getValue();
     }
 }

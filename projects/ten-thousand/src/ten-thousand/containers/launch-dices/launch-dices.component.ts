@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 import {IPlayer} from '../../interfaces/player';
 import {CalculService} from '../../services/calcul.service';
@@ -9,6 +9,7 @@ import {PlayersService} from '../../services/players.service';
     selector: 'launch-dices',
     templateUrl: './launch-dices.component.html',
     styleUrls: ['./launch-dices.component.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LaunchDicesComponent {
     public dices$: BehaviorSubject<number[]>;
@@ -34,7 +35,9 @@ export class LaunchDicesComponent {
         this.calculService.rollDices();
         // this._stockage.miseAjourDeLaPartie(this.score$, this.currentPlayer$);
     }
-
+    check() {
+        // console.log('réactualiser');
+    }
     get scorePartie() {
         return this.score$;
     }

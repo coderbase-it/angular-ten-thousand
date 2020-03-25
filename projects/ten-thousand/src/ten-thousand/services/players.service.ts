@@ -18,7 +18,7 @@ export class PlayersService {
     constructor(private _stockage: StockageService) {
         if (this._stockage.partieSauvegarder()) {
             this.players = this._stockage.getPartieSauvegarder();
-            this.currentPlayer$.next(this.players.reverse()[0]);
+            this.currentPlayer$.next(this.players[this.players.length - 1]);
         }
     }
 
@@ -29,7 +29,7 @@ export class PlayersService {
 
         this.players = players;
         this.nextPlayer();
-        this._stockage.sauvegardeDeLaPartie(this.players);
+        // this._stockage.sauvegardeDeLaPartie(this.players);
     }
 
     nextPlayer() {
