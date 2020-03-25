@@ -7,6 +7,9 @@ import {Injectable} from '@angular/core';
 })
 export class PlayerQuery extends Query<TenThousandState> {
     players$ = this.select('players');
+    currentPlayer$ = this.select(
+        state => state.players.filter(player => player.isPlaying)[0],
+    );
 
     constructor(protected store: TenThousandStore) {
         super(store);
