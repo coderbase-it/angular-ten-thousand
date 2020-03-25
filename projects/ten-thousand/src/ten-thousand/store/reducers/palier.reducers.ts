@@ -1,10 +1,10 @@
 import {EPalierActions, PalierActions} from '../actions/palier.actions';
 import {InitialPalierState, IPalierState} from '../state/palier.state';
 
-export const palierReducers = (
-    state = InitialPalierState,
+export function palierReducers(
+    state: IPalierState = InitialPalierState,
     action: PalierActions,
-): IPalierState => {
+): IPalierState {
     switch (action.type) {
         case EPalierActions.GetPaliersSuccess: {
             return {
@@ -15,4 +15,4 @@ export const palierReducers = (
         default:
             return state;
     }
-};
+}

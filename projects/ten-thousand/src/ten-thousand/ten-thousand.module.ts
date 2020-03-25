@@ -4,6 +4,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {StoreRouterConnectingModule} from '@ngrx/router-store';
 import {StoreModule} from '@ngrx/store';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {environment} from '../../../test-lib/src/environments/environment.prod';
 import {DiceComponent} from './components/dice/dice.component';
 import {PaliersComponent} from './components/paliers/paliers.component';
 import {AddPlayerComponent} from './containers/add-player/add-player.component';
@@ -23,7 +25,8 @@ import {TenThousandRoutingModule} from './ten-thousand-routing.module';
         FontAwesomeModule,
         TenThousandRoutingModule,
         ReactiveFormsModule,
-        StoreModule.forRoot(appReducers),
+        StoreModule.forRoot(appReducers, {}),
+        !environment.production ? StoreDevtoolsModule.instrument() : [],
         StoreRouterConnectingModule.forRoot({stateKey: 'router'}),
     ],
     exports: [LaunchDicesComponent],
