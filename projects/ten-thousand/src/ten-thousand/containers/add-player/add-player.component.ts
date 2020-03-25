@@ -2,7 +2,7 @@ import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {PlayersService} from '../../services/players.service';
-import {PlayerService} from '../../store/player.service';
+import {PlayerService} from '../../store/player/player.service';
 
 @Component({
     selector: 'add-player',
