@@ -1,3 +1,7 @@
+export interface IPalier {
+    valide: boolean;
+    nombreSocks: number;
+}
 export class Palier {
     valide = true;
     nombreSocks = 0;
