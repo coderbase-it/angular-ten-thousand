@@ -23,7 +23,9 @@ export class StockageService {
         localStorage.removeItem('tenThousand');
     }
     getPartieSauvegarder(): IPlayer[] {
-        return JSON.parse(localStorage.getItem('tenThousand') as string);
+        const partie = localStorage.getItem('tenThousand');
+
+        return partie ? JSON.parse(partie) : [];
     }
     partieSauvegarder(): boolean {
         const partie: IPlayer[] = JSON.parse(localStorage.getItem(
