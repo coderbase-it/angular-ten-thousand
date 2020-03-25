@@ -1,5 +1,4 @@
 import {EntityStore, StoreConfig, EntityState} from '@datorama/akita';
-import {IPlayer} from '../../interfaces/player';
 import {Player} from '../../interfaces/player';
 import {Injectable} from '@angular/core';
 
