@@ -36,9 +36,19 @@
         "publish:ten-thousand": "npm publish ./dist/ten-thousand"
     },
     "description": "This is a template project to develop, create and open-source Angular libraries with demos",
-    "keywords": ["angular", "ng", "workspace", "library", "starter", "tinkoff"],
+    "keywords": [
+        "angular",
+        "ng",
+        "workspace",
+        "library",
+        "starter",
+        "tinkoff"
+    ],
     "license": "Apache-2.0",
-    "authors": ["Roman Sedov <r.sedov@tinkoff.ru>", "Alex Inkin <a.inkin@tinkoff.ru>"],
+    "authors": [
+        "Roman Sedov <r.sedov@tinkoff.ru>",
+        "Alex Inkin <a.inkin@tinkoff.ru>"
+    ],
     "repository": "https://github.com/TinkoffCreditSystems/angular-library-starter",
     "bugs": "https://github.com/TinkoffCreditSystems/angular-library-starter/issues",
     "homepage": "https://github.com/TinkoffCreditSystems/angular-library-starter#README",
@@ -115,7 +125,10 @@
         }
     },
     "lint-staged": {
-        "*.{js,ts,html,md,less,json}": ["prettier --write", "git add"],
+        "*.{js,ts,html,md,less,json}": [
+            "prettier --write",
+            "git add"
+        ],
         "*.ts": "tslint"
     },
     "standard-version": {

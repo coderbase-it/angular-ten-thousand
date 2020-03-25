@@ -26,8 +26,9 @@ import {TenThousandRoutingModule} from './ten-thousand-routing.module';
         TenThousandRoutingModule,
         ReactiveFormsModule,
         StoreModule.forRoot(appReducers, {}),
-        !environment.production ? StoreDevtoolsModule.instrument() : [],
+        // !environment.production ? StoreDevtoolsModule.instrument() : [],
         StoreRouterConnectingModule.forRoot({stateKey: 'router'}),
+        StoreDevtoolsModule.instrument(),
     ],
     exports: [LaunchDicesComponent],
 })

@@ -1,6 +1,6 @@
 import {createSelector} from '@ngrx/store';
-import {IAppState} from '../state/app.state';
 import {IPalierState} from '../state/palier.state';
+import {IAppState} from '../state/app.state';
 
 const selectPaliers = (state: IAppState) => state.paliers;
 

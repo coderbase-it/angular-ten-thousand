@@ -5,6 +5,10 @@ import {CalculService} from '../../services/calcul.service';
 import {PalierService} from '../../services/palier.service';
 import {PlayersService} from '../../services/players.service';
 import {StockageService} from '../../services/stockage.service';
+import {Store, select} from '@ngrx/store';
+
+import {selectPalierList} from '../../store/selectors/palier.selectors';
+import {IAppState} from '../../store/state/app.state';
 
 @Component({
     selector: 'launch-dices',
@@ -18,12 +22,14 @@ export class LaunchDicesComponent {
     public sock$: BehaviorSubject<boolean>;
     public players$: BehaviorSubject<IPlayer[]>;
     public currentPlayer$: BehaviorSubject<IPlayer>;
+    paliers$ = this.store.pipe(select(selectPalierList));
 
     constructor(
         private playerService: PlayersService,
         private calculService: CalculService,
         private palierService: PalierService,
         private stockageService: StockageService,
+        private store: Store<IAppState>,
     ) {
         this.players$ = this.playerService.players$;
         this.dices$ = this.calculService.dices$;
