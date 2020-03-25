@@ -1,4 +1,4 @@
-<div>listes des joueurs {{ players | json }}</div>
+<div>listes des joueurs {{ players$ | async | json }}</div>
 
 <div>Joueur courant : {{ currentPlayer$ | async | json }}</div>
 
