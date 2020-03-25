@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {BehaviorSubject} from 'rxjs';
 import {IPlayer} from '../../interfaces/player';
 import {CalculService} from '../../services/calcul.service';
 import {PalierService} from '../../services/palier.service';
@@ -64,6 +64,6 @@ export class LaunchDicesComponent {
         // this.currentPlayer$.value.score += score;
         this.playerService.nextPlayer();
         this.stockageService.sauvegardeDeLaPartie(this.players$.value);
-        this.storePlayerService.nextPlayer();
+        // this.storePlayerService.nextPlayer();
     }
 }
