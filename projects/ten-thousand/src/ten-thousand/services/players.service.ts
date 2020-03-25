@@ -12,13 +12,12 @@ export class PlayersService {
         score: 0,
         paliers: [],
     });
-    public players: IPlayer[] = [];
+    public players$: BehaviorSubject<IPlayer[]> = new BehaviorSubject<IPlayer[]>([]);
 
     private currentIndex = 0;
     constructor(private _stockage: StockageService) {
-        if (this._stockage.partieSauvegarder()) {
-            this.players = this._stockage.getPartieSauvegarder();
-            this.currentPlayer$.next(this.players[this.players.length - 1]);
+        if (this.players$.value.length === 0) {
+            this.loadLastGame();
         }
     }
 
@@ -27,12 +26,24 @@ export class PlayersService {
             return {name, score: 0, paliers: []};
         });
 
-        this.players = players;
+        this.currentIndex = 0;
+        this.players$.next(players);
         this.nextPlayer();
-        // this._stockage.sauvegardeDeLaPartie(this.players);
+        this._stockage.sauvegardeDeLaPartie(this.players$.value);
     }
 
     nextPlayer() {
-        this.currentPlayer$.next(this.players[this.currentIndex++ % this.players.length]);
+        const players = this.players$.value;
+        this.currentPlayer$.next(players[this.currentIndex++ % players.length]);
+    }
+
+    loadLastGame() {
+        const data = this._stockage.getPartieSauvegarder();
+
+        if (data.length > 0) {
+            this.currentIndex = 0;
+            this.players$.next(data);
+            this.nextPlayer();
+        }
     }
 }

@@ -13,7 +13,7 @@ export class PalierService {
     valider(valeur: number) {
         // avant la validation il faut vérifier si on écrase pas un palier d'un concurrents
         if (valeur) {
-            this.playersService.players.forEach(player => {
+            this.playersService.players$.value.forEach(player => {
                 player.paliers.forEach(p => {
                     // un palier existe déja chez un joueur
                     if (p.valeur === valeur) {
@@ -22,7 +22,7 @@ export class PalierService {
                 });
             });
             // on valide le palier
-            const player = this.playersService.players.filter(
+            const player = this.playersService.players$.value.filter(
                 p => p.name === this.playersService.currentPlayer$.value.name,
             );
             if (player.length > 0) {
@@ -33,7 +33,7 @@ export class PalierService {
     }
 
     applySock() {
-        const player = this.playersService.players.filter(
+        const player = this.playersService.players$.value.filter(
             p => p.name === this.playersService.currentPlayer$.value.name,
         );
         if (player.length > 0) {

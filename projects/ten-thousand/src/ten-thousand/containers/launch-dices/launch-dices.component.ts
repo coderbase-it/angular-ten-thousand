@@ -1,9 +1,12 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {IPlayer} from '../../interfaces/player';
 import {CalculService} from '../../services/calcul.service';
 import {PalierService} from '../../services/palier.service';
 import {PlayersService} from '../../services/players.service';
+import {StockageService} from '../../services/stockage.service';
+import { Select } from '@ngxs/store';
+import { PlayersState } from '../store/addPlayer.state';
 
 @Component({
     selector: 'launch-dices',
@@ -16,14 +19,18 @@ export class LaunchDicesComponent {
     public score$: BehaviorSubject<number>;
     public dicesScore: number[];
     public sock$: BehaviorSubject<boolean>;
-    public players: IPlayer[];
+    public players$$: BehaviorSubject<IPlayer[]>;
     public currentPlayer$: BehaviorSubject<IPlayer>;
+
+    @Select(PlayersState) players$: Observable<IPlayer[]> | undefined;
+
     constructor(
         private playerService: PlayersService,
         private calculService: CalculService,
         private palierService: PalierService,
+        private stockageService: StockageService,
     ) {
-        this.players = this.playerService.players;
+        this.players$$ = this.playerService.players$;
         this.dices$ = this.calculService.dices$;
         this.score$ = this.calculService.score$;
         this.dicesScore = this.calculService.dicesScore;
@@ -46,5 +53,6 @@ export class LaunchDicesComponent {
         this.palierService.valider(score);
         this.currentPlayer$.value.score += score;
         this.playerService.nextPlayer();
+        this.stockageService.sauvegardeDeLaPartie(this.players$$.value);
     }
 }
