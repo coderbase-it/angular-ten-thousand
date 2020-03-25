@@ -17,7 +17,7 @@ export class PlayersService {
     private currentIndex = 0;
     constructor(private _stockage: StockageService) {
         if (this.players$.value.length === 0) {
-            this.loadLastGame();
+            //this.loadLastGame();
         }
     }
 
