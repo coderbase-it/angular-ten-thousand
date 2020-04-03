@@ -1,0 +1,15 @@
+{
+    "name": "coderbase-ngx-breadcrumbs",
+    "version": "1.0.0",
+    "peerDependencies": {
+        "@angular/core": ">=4.0.0"
+    },
+    "private": false,
+    "description": "",
+    "keywords": [],
+    "license": "Apache-2.0",
+    "authors": [],
+    "repository": "",
+    "bugs": "",
+    "homepage": ""
+}

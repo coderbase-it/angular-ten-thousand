@@ -28,21 +28,40 @@
         "release:minor": "npm run release -- --release-as minor",
         "release:major": "npm run release -- --release-as major",
         "publish": "npm run build:all && npm publish:all",
-        "build:all": "npm run build:ten-thousand",
-        "publish:all": "npm run publish:ten-thousand",
+        "build:all": "npm run build:ten-thousand && npm run build:angular-yeti-login && npm run build:ngx-breadcrumbs",
+        "publish:all": "npm run publish:ten-thousand && npm run publish:angular-yeti-login && npm run publish:ngx-breadcrumbs",
         "build:ten-thousand": "ng run ten-thousand:build",
         "test:ten-thousand": "ng run ten-thousand:test",
         "test:ten-thousand:watch": "ng run ten-thousand:test --watch=true",
-        "publish:ten-thousand": "npm publish ./dist/ten-thousand"
+        "publish:ten-thousand": "npm publish ./dist/ten-thousand",
+        "build:angular-yeti-login": "ng run angular-yeti-login:build",
+        "test:angular-yeti-login": "ng run angular-yeti-login:test",
+        "test:angular-yeti-login:watch": "ng run angular-yeti-login:test --watch=true",
+        "publish:angular-yeti-login": "npm publish ./dist/angular-yeti-login",
+        "build:ngx-breadcrumbs": "ng run ngx-breadcrumbs:build",
+        "test:ngx-breadcrumbs": "ng run ngx-breadcrumbs:test",
+        "test:ngx-breadcrumbs:watch": "ng run ngx-breadcrumbs:test --watch=true",
+        "publish:ngx-breadcrumbs": "npm publish ./dist/ngx-breadcrumbs"
     },
     "description": "This is a template project to develop, create and open-source Angular libraries with demos",
-    "keywords": ["angular", "ng", "workspace", "library", "starter", "tinkoff"],
+    "keywords": [
+        "angular",
+        "ng",
+        "workspace",
+        "library",
+        "starter",
+        "tinkoff"
+    ],
     "license": "Apache-2.0",
-    "authors": ["Roman Sedov <r.sedov@tinkoff.ru>", "Alex Inkin <a.inkin@tinkoff.ru>"],
+    "authors": [
+        "Roman Sedov <r.sedov@tinkoff.ru>",
+        "Alex Inkin <a.inkin@tinkoff.ru>"
+    ],
     "repository": "https://github.com/TinkoffCreditSystems/angular-library-starter",
     "bugs": "https://github.com/TinkoffCreditSystems/angular-library-starter/issues",
     "homepage": "https://github.com/TinkoffCreditSystems/angular-library-starter#README",
     "schematics": "./schematics/collection.json",
+    "private": false,
     "dependencies": {
         "@angular/animations": "^9.0.7",
         "@angular/common": "^9.0.7",
@@ -58,11 +77,16 @@
         "@fortawesome/free-brands-svg-icons": "^5.12.1",
         "@fortawesome/free-regular-svg-icons": "^5.12.1",
         "@fortawesome/free-solid-svg-icons": "^5.12.1",
+        "@ng-bootstrap/ng-bootstrap": "^6.0.2",
         "@nguniversal/common": "^9.0.2",
         "@nguniversal/express-engine": "^9.0.2",
         "@nguniversal/module-map-ngfactory-loader": "^7.1.1",
+        "@types/gsap": "^1.20.2",
+        "application": "^0.1.4",
         "core-js": "^2.5.4",
+        "gsap": "^3.2.6",
         "rxjs": "^6.5.4",
+        "tsickle": "^0.38.1",
         "tslib": "^1.10.0",
         "zone.js": "~0.10.2"
     },
@@ -110,7 +134,10 @@
         }
     },
     "lint-staged": {
-        "*.{js,ts,html,md,less,json}": ["prettier --write", "git add"],
+        "*.{js,ts,html,md,less,json}": [
+            "prettier --write",
+            "git add"
+        ],
         "*.ts": "tslint"
     },
     "standard-version": {
