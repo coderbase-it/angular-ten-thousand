@@ -1,5 +1,5 @@
 {
-    "name": "ten-thousand",
+    "name": "@coderbase/ten-thousand",
     "version": "1.1.2",
     "scripts": {
         "ng": "ng",
@@ -44,21 +44,16 @@
         "publish:ngx-breadcrumbs": "npm publish ./dist/ngx-breadcrumbs"
     },
     "description": "This is a template project to develop, create and open-source Angular libraries with demos",
-    "keywords": [
-        "angular",
-        "ng",
-        "workspace",
-        "library",
-        "starter",
-        "tinkoff"
-    ],
+    "keywords": ["angular", "ng", "workspace", "library", "starter", "tinkoff"],
     "license": "Apache-2.0",
-    "authors": [
-        "Roman Sedov <r.sedov@tinkoff.ru>",
-        "Alex Inkin <a.inkin@tinkoff.ru>"
-    ],
-    "repository": "https://github.com/TinkoffCreditSystems/angular-library-starter",
-    "bugs": "https://github.com/TinkoffCreditSystems/angular-library-starter/issues",
+    "authors": ["Roman Sedov <r.sedov@tinkoff.ru>", "Alex Inkin <a.inkin@tinkoff.ru>"],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/TinkoffCreditSystems/angular-library-starter.git"
+    },
+    "bugs": {
+        "url": "https://github.com/TinkoffCreditSystems/angular-library-starter/issues"
+    },
     "homepage": "https://github.com/TinkoffCreditSystems/angular-library-starter#README",
     "schematics": "./schematics/collection.json",
     "private": false,
@@ -85,6 +80,7 @@
         "application": "^0.1.4",
         "core-js": "^2.5.4",
         "gsap": "^3.2.6",
+        "np": "^6.2.0",
         "rxjs": "^6.5.4",
         "tsickle": "^0.38.1",
         "tslib": "^1.10.0",
@@ -134,10 +130,7 @@
         }
     },
     "lint-staged": {
-        "*.{js,ts,html,md,less,json}": [
-            "prettier --write",
-            "git add"
-        ],
+        "*.{js,ts,html,md,less,json}": ["prettier --write", "git add"],
         "*.ts": "tslint"
     },
     "standard-version": {
@@ -148,5 +141,7 @@
     "engines": {
         "node": ">= 10",
         "npm": ">= 3"
-    }
+    },
+    "main": "prettier.config.js",
+    "author": "coderbaseit@gmail.com"
 }
