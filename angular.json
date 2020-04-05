@@ -240,42 +240,6 @@
                 }
             }
         },
-        "angular-yeti-login": {
-            "projectType": "library",
-            "root": "projects/angular-yeti-login",
-            "sourceRoot": "projects/angular-yeti-login/src",
-            "architect": {
-                "build": {
-                    "builder": "@angular-devkit/build-ng-packagr:build",
-                    "options": {
-                        "tsConfig": "projects/angular-yeti-login/tsconfig.lib.json",
-                        "project": "projects/angular-yeti-login/ng-package.json"
-                    }
-                },
-                "test": {
-                    "builder": "@angular-devkit/build-angular:karma",
-                    "options": {
-                        "main": "projects/angular-yeti-login/src/test.ts",
-                        "tsConfig": "projects/angular-yeti-login/tsconfig.spec.json",
-                        "karmaConfig": "projects/angular-yeti-login/karma.conf.js",
-                        "codeCoverage": true,
-                        "browsers": "ChromeHeadless"
-                    }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": [
-                            "projects/angular-yeti-login/tsconfig.lib.json",
-                            "projects/angular-yeti-login/tsconfig.spec.json"
-                        ],
-                        "exclude": [
-                            "**/node_modules/**"
-                        ]
-                    }
-                }
-            }
-        },
         "ngx-breadcrumbs": {
             "projectType": "library",
             "root": "projects/ngx-breadcrumbs",

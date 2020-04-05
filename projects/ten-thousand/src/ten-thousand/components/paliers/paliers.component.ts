@@ -17,7 +17,7 @@ export class PaliersComponent implements OnInit {
 
     ngOnInit(): void {}
 
-    createArray(nombreSocks: any) {
+    createArray(nombreSocks: any) : any[] {
         return new Array(nombreSocks);
     }
 }

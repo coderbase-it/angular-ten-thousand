@@ -5,13 +5,11 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app.routes';
 import {StaticModule} from './modules/static/static.module';
-import {YetiDemoModule} from "./modules/yeti-demo/yeti-demo.module";
 
 @NgModule({
     bootstrap: [AppComponent],
     imports: [
         BrowserModule.withServerTransition({appId: 'demo-superman'}),
-        YetiDemoModule,
         AppRoutingModule,
         StaticModule,
         FontAwesomeModule,

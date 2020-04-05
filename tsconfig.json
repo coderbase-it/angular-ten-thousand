@@ -31,9 +31,6 @@
             "ten-thousand": [
                 "projects/ten-thousand/src/public-api"
             ],
-            "angular-yeti-login": [
-                "projects/angular-yeti-login/src/public-api"
-            ],
             "ngx-breadcrumbs": [
                 "projects/ngx-breadcrumbs/src/public-api"
             ]
