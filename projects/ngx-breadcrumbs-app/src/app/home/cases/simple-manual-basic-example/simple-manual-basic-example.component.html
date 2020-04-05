@@ -1,0 +1,30 @@
+<h3>
+    Simple Manual Usage:
+
+</h3>
+
+<p>
+    Two Components coderbase-ngx-breadcrumbs and coderbase-ngx-breadcrumb-item are use for building each segment of your breadcrumb
+    U can add any separator by adding a html Element with class="endOfCrumb"
+    Important this way use full concept of Transclusion/Content-Projection ( ng-content )
+    so be sure to put all your element inside  coderbase-ngx-breadcrumbs tag like below
+</p>
+<pre >
+    {{ code}}
+
+</pre>
+
+<h4>Result  :  </h4>
+
+<coderbase-ngx-breadcrumbs>
+    <coderbase-ngx-breadcrumb-item [label]="keyword" [route]="['/']">
+        <span class="endOfCrumb" >/</span>
+    </coderbase-ngx-breadcrumb-item>
+    <coderbase-ngx-breadcrumb-item [label]="keyword" [route]="['/']">
+        <span class="endOfCrumb" >$</span>
+    </coderbase-ngx-breadcrumb-item>
+    <coderbase-ngx-breadcrumb-item [label]="keyword" [route]="['/']">
+    </coderbase-ngx-breadcrumb-item>
+</coderbase-ngx-breadcrumbs>
+
+

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router, Route } from '@angular/router';
 import { filter} from 'rxjs/internal/operators';
 import { NgxBreadcrumb } from './ngx-breadcrumb';
-import { NgxBreadcrumbsService } from './ngx-breadcrumbs.service';
+import { NgxBreadcrumbsService } from './services/ngx-breadcrumbs.service';
 
 @Component({
   selector: 'ngx-breadcrumbs',

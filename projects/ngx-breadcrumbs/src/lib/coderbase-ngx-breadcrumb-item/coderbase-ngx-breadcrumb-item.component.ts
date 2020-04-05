@@ -1,4 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {NgxBreadcrumbsService} from "ngx-breadcrumbs";
+import {BehaviorSubject} from "rxjs";
 
 @Component({
   selector: 'coderbase-ngx-breadcrumb-item',
@@ -13,8 +15,13 @@ export class CoderbaseNgxBreadcrumbItemComponent implements OnInit {
     @Input() href = '';
     @Input() active: any;
     @Input() activeClass = 'active';
+    public globalSeparator$: BehaviorSubject<any>;
 
-  constructor() { }
+
+
+  constructor(private ngxBreadcrumbsService : NgxBreadcrumbsService) {
+      this.globalSeparator$ = this.ngxBreadcrumbsService.globalSeparator$;
+  }
 
   ngOnInit(): void {
   }

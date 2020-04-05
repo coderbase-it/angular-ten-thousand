@@ -1,11 +1,21 @@
 
-<a [attr.href]="href" *ngIf="!route" [ngClass]="{activeClass: active}">{{ label }}</a>
-<a [ngClass]="[active ? activeClass: '']"
+<a [attr.href]="href"
+   *ngIf="!route"
+   [ngClass]="{activeClass: active}"
+>
+    {{ label }}
+</a>
+<a
+    [ngClass]="[active ? activeClass: '']"
     [routerLink]="route"
     [queryParams]="routeParams ? routeParams : null"
     [fragment]="fragment ? fragment : null"
     *ngIf="route"
->{{ label }}</a
 >
+    {{ label }}
+</a>
 
-
+<ng-content select=".endOfCrumb"></ng-content>
+<ng-container>
+    {{globalSeparator$ | async}}
+</ng-container>

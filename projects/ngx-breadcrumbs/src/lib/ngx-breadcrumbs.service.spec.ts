@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { NgxBreadcrumbsService } from './ngx-breadcrumbs.service';
+import { NgxBreadcrumbsService } from './services/ngx-breadcrumbs.service';
 
 describe('NgxBreadcrumbsService', () => {
   beforeEach(() => {
