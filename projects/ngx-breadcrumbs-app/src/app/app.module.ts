@@ -41,7 +41,7 @@ const appRoutes: Routes = [
                 component: Child1Component,
                 data: {
                     breadcrumb: 'Child 1',
-                    show: false
+                    show: true
                 }
             },
             {

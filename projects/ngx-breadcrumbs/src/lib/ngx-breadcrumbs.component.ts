@@ -5,7 +5,7 @@ import { NgxBreadcrumb } from './ngx-breadcrumb';
 import { NgxBreadcrumbsService } from './ngx-breadcrumbs.service';
 
 @Component({
-  selector: 'coderbase-ngx-breadcrumbs',
+  selector: 'ngx-breadcrumbs',
   template: `
     <nav aria-label="breadcrumb"
          *ngIf="show">
@@ -30,7 +30,7 @@ import { NgxBreadcrumbsService } from './ngx-breadcrumbs.service';
 })
 export class NgxBreadcrumbsComponent implements OnInit {
   customCrumbs = [];
-  breadcrumbs: NgxBreadcrumb[] | undefined;
+  breadcrumbs: NgxBreadcrumb[] = [];
   show = true;
 
   constructor(private router: Router,
@@ -41,6 +41,7 @@ export class NgxBreadcrumbsComponent implements OnInit {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
+          console.log(this.activatedRoute)
         this.breadcrumbs = this.handleRoute(this.activatedRoute.root);
       });
     this.service.dynamicCrumbs.subscribe(crumb => {

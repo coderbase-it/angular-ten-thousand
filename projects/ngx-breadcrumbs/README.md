@@ -1,5 +1,15 @@
 # ngx-breadcrumbs
 
+# Goal
+
+Le but est garder une librairie simple d'utilisation , facilitant la mise en place d'un breadcrumb 
+sans lien avec un librairie et laissait l'utilisateur maitre de la partie css
+le breadcrumb peut etre proposé dynamiquement ou en manuel voir les deux     
+
+## DEV GUIDELINES
+```npm install && ng serve ngx-breadcrumbs-app```
+
+
 # DEMO 
 [DEMO](https://stackblitz.com/github/coderbase-it/angular-ten-thousand/tree/master/projects/ngx-breadcrumb-app)
 
