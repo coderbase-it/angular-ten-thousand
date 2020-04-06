@@ -1,7 +1,12 @@
-# Coderbase Ten Thousand
+# Coderbase Ten Thousand MonoRepo
+### This is a monorepo for Coderbase Angular open source librairie
 
-![Travis (.org)](https://img.shields.io/travis/TinkoffCreditSystems/angular-open-source-starter)
+[![angular-open-source-starter](https://img.shields.io/badge/made%20with-angular--open--source--starter-d81676?logo=angular)](https://github.com/TinkoffCreditSystems/angular-open-source-starter)
 
+
+* [Ngx Breadcrumbs](https://github.com/coderbase-it/angular-ten-thousand/blob/master/projects/ngx-breadcrumbs/README.md)
+![npm](https://img.shields.io/npm/v/coderbase-ngx-breadcrumbs) 
+* [Ten Thousand](https://github.com/coderbase-it/angular-ten-thousand/blob/master/projects/ten-thousand/README.md)
 
 
 
@@ -70,12 +75,4 @@ Don't need your library to support Angular 7 and below? Run following command to
 
     ng update @angular/cli @angular/compiler-cli @angular/core @nguniversal/common tsickle
     
-## Badge
 
-Show that your project is based off of our starter 
-
-[![angular-open-source-starter](https://img.shields.io/badge/made%20with-angular--open--source--starter-d81676?logo=angular)](https://github.com/TinkoffCreditSystems/angular-open-source-starter)
-
-```md
-[![angular-open-source-starter](https://img.shields.io/badge/made%20with-angular--open--source--starter-d81676?logo=angular)](https://github.com/TinkoffCreditSystems/angular-open-source-starter)
-```

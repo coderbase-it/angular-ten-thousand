@@ -37,20 +37,29 @@
         "build:ngx-breadcrumbs": "ng run ngx-breadcrumbs:build",
         "test:ngx-breadcrumbs": "ng run ngx-breadcrumbs:test",
         "test:ngx-breadcrumbs:watch": "ng run ngx-breadcrumbs:test --watch=true",
-        "publish:ngx-breadcrumbs": "npm publish ./dist/ngx-breadcrumbs"
+        "publish:ngx-breadcrumbs": "npm publish ./dist/ngx-breadcrumbs --access public"
     },
     "description": "This is a template project to develop, create and open-source Angular libraries with demos",
-    "keywords": ["angular", "ng", "workspace", "library", "starter", "tinkoff"],
+    "keywords": [
+        "angular",
+        "ng",
+        "workspace",
+        "library",
+        "starter",
+        "coderbase.io"
+    ],
     "license": "Apache-2.0",
-    "authors": ["Roman Sedov <r.sedov@tinkoff.ru>", "Alex Inkin <a.inkin@tinkoff.ru>"],
+    "authors": [
+        "Pierre Nédélec <p.nedelec@coderbase.io>"
+    ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/TinkoffCreditSystems/angular-library-starter.git"
+        "url": "git+https://github.com:coderbase-it/angular-ten-thousand.git"
     },
     "bugs": {
-        "url": "https://github.com/TinkoffCreditSystems/angular-library-starter/issues"
+        "url": "https://github.com:coderbase-it/angular-ten-thousand.git/issues"
     },
-    "homepage": "https://github.com/TinkoffCreditSystems/angular-library-starter#README",
+    "homepage": "https://github.com:coderbase-it/angular-ten-thousand#README",
     "schematics": "./schematics/collection.json",
     "private": false,
     "dependencies": {
@@ -121,7 +130,10 @@
         "typescript": "~3.7.5"
     },
     "lint-staged": {
-        "*.{js,ts,html,md,less,json}": ["prettier --write", "git add"],
+        "*.{js,ts,html,md,less,json}": [
+            "prettier --write",
+            "git add"
+        ],
         "*.ts": "tslint"
     },
     "standard-version": {

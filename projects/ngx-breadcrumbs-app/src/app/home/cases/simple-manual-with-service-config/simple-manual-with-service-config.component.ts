@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./simple-manual-with-service-config.component.scss']
 })
 export class SimpleManualWithServiceConfigComponent implements OnInit {
-    keyword: any = "Here separator come with global config "
+    keyword: any = "Here separator come with global config ";
 
   constructor() { }
 
