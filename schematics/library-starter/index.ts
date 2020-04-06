@@ -105,7 +105,7 @@ function updatePackage(tree: Tree, name: string) {
     const buildKey = `build:${name}`;
     const buildAll = scripts['build:all'] || '';
     const buildAllValue = buildAll ? `${buildAll} && npm run ${buildKey}` : `npm run ${buildKey}`;
-    const publish = `npm publish ./dist/${name}`;
+    const publish = `npm publish ./dist/${name} --access public`;
     const publishKey = `publish:${name}`;
     const publishAll = scripts['publish:all'] || '';
     const publishAllValue = publishAll ? `${publishAll} && npm run ${publishKey}` : `npm run ${publishKey}`;

@@ -21,48 +21,68 @@ $ npm --save install @coderbase/ngx-breadcrumbs
 $ yarn add @coderbase/ngx-breadcrumbs
 ```
 
-To use this module you have to add it to the `imports` section in your `app.module.ts`. It should be lower than `RouterModule` import.
+To use this module (forRoot) you have to add it to the `imports` section in your `app.module.ts`. 
+
 
 ```javascript
 import { RouterModule } from '@angular/router';
-import { McBreadcrumbsModule } from 'ngx-breadcrumbs';
+import { NgxBreadcrumbsModule } from '@coderbase/ngx-breadcrumbs';
 @NgModule({
   imports: [
     RouterModule.forRoot(routes),
-    NgxBreadcrumbsModule.forRoot()
+    NgxBreadcrumbsModule.forRoot({
+    globalSeparator: '/'
+})
   ],  
 })
 export class AppModule {}
 ```
 
-Now you have to set it on the place in your global template. Usually, the best place is in `AppComponent` template.
+For Lazy loading module or other module who want to override global separator , u have to use forChild()
+
 ```javascript
-@Component({
-  selector: 'app-root',
-  template: `
-    <div class="container">
-      <coderbase-ngx-breadcrumbs></coderbase-ngx-breadcrumbs>
-      <router-outlet></router-outlet>
-    </div>`
+import { RouterModule } from '@angular/router';
+import { NgxBreadcrumbsModule } from '@coderbase/ngx-breadcrumbs';
+@NgModule({
+  imports: [
+    RouterModule.forChild(routes),
+    NgxBreadcrumbsModule.forChild({
+    globalSeparator: '*'
 })
-export class AppComponent {}
+  ],  
+})
+export class LazyModule {}
 ```
 
-## Configuration
 
-Configuration of the breadcrumbs module is accessable in your route configuration.
+Now you have to set it on the place in your component template
 
-```javascript
-const routes: Route[] = {
-  {
-    path: '',
-    component: HomeComponent,
-    data: {
-      breadcrumb: 'Home',
-      isHome: true,
-      icon: 'fa fa-home',
-      show: false
-    }
-  }
-};
+```html 
+<coderbase-ngx-breadcrumbs>
+ 
+     <coderbase-ngx-breadcrumb-item
+         label="keyword"
+         [route]="['/']"
+     >
+     </coderbase-ngx-breadcrumb-item>
+ 
+     <coderbase-ngx-breadcrumb-item
+         label="keyword"
+         [route]="['/']"
+          [active]="true"
+     >
+     </coderbase-ngx-breadcrumb-item>    <coderbase-ngx-breadcrumb-item
+     label="keyword"
+     [route]="['/']"
+ >
+ </coderbase-ngx-breadcrumb-item>
+     <coderbase-ngx-breadcrumb-item class="first" [label]="'HOME'" [href]="'/'">
+ 
+     </coderbase-ngx-breadcrumb-item>
+ 
+ </coderbase-ngx-breadcrumbs>
 ```
+
+## Cas d'utilisation du component et construction de votre breadcrumbs 
+
+

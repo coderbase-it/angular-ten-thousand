@@ -18,9 +18,7 @@
         "core-js": "2.6.9",
         "rxjs": "6.5.2",
         "zone.js": "0.9.1",
-        "ten-thousand": "latest",
-        "angular-yeti-login": "latest",
-        "ngx-breadcrumbs": "latest"
+        "@coderbase/ngx-breadcrumbs": "latest"
     },
     "devDependencies": {
         "@angular-devkit/build-angular": "^0.803.2",
