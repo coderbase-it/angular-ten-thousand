@@ -28,10 +28,10 @@
             "dom"
         ],
         "paths": {
-            "ten-thousand": [
+            "@coderbase/ten-thousand": [
                 "projects/ten-thousand/src/public-api"
             ],
-            "ngx-breadcrumbs": [
+            "@coderbase/ngx-breadcrumbs": [
                 "projects/ngx-breadcrumbs/src/public-api"
             ]
         }

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {TenThousandModule} from '../../../../../../ten-thousand/src/ten-thousand/ten-thousand.module';
+import {TenThousandModule} from '@coderbase/ten-thousand';
 
 
 @NgModule({
