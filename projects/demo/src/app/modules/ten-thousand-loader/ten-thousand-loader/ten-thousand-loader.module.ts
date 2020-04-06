@@ -7,4 +7,8 @@ import {TenThousandModule} from '@coderbase/ten-thousand';
       TenThousandModule
   ]
 })
-export class TenThousandLoaderModule { }
+export class TenThousandLoaderModule {
+    constructor() {
+    console.log('loader')
+    }
+}
