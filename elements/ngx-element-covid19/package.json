@@ -1,0 +1,28 @@
+{
+    "name": "@coderbase/ngx-element-covid19",
+    "version": "1.1.1",
+    "description": "Angular Element display Api Covid19 infos",
+    "keywords": [
+        "angular",
+        "ng",
+        "workspace",
+        "library",
+        "starter",
+        "coderbase.io"
+    ],
+    "license": "Apache-2.0",
+    "authors": [
+        "Pierre Nédélec <p.nedelec@coderbase.io>"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com:coderbase-it/angular-ten-thousand.git"
+    },
+    "private": false,
+    "engines": {
+        "node": ">= 10",
+        "npm": ">= 3"
+    },
+
+    "author": "coderbaseit@gmail.com"
+}

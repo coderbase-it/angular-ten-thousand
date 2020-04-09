@@ -1,0 +1,18 @@
+<div class="container">
+    <h1 class="title">
+        Statistiques du Covid 19
+    </h1>
+    <h6 class="text-muted mb-4">
+        API https://covid19.mathdro.id/api
+    </h6>
+    <div>
+        <div class="error"></div>
+        <div class="info"></div>
+        <div class="mb-4" *ngIf="countries$ | push as countries">
+            <select name="countries" id="countries" [formControl]="FormControlCountries">
+                <option [value]="c.iso2" *ngFor="let c of countries"> {{c.name}}</option>
+            </select>
+        </div>
+        <div class="country-stats"></div>
+    </div>
+</div>

@@ -1,5 +1,7 @@
 # Coderbase Ten Thousand MonoRepo
-### This is a monorepo for Coderbase Angular open source librairie
+### This is a monorepo for Coderbase Angular open source Librairie and Angular Elements Projects
+### Anyone can bring his own project from the smaller librairie to the biggest one 
+### And also pull request current 
 
 [![angular-open-source-starter](https://img.shields.io/badge/made%20with-angular--open--source--starter-d81676?logo=angular)](https://github.com/TinkoffCreditSystems/angular-open-source-starter)
 
@@ -7,7 +9,7 @@
 * [Ngx Breadcrumbs](https://github.com/coderbase-it/angular-ten-thousand/blob/master/projects/ngx-breadcrumbs/README.md)
 ![npm](https://img.shields.io/npm/v/coderbase-ngx-breadcrumbs) 
 * [Ten Thousand](https://github.com/coderbase-it/angular-ten-thousand/blob/master/projects/ten-thousand/README.md)
-
+* [Ngx Element Covid19 ](https://github.com/coderbase-it/angular-ten-thousand/blob/master/projects/ngx-element-covid19/README.md)
 
 
 ## How to contribute
