@@ -1,4 +1,4 @@
- # Angular Element for Covid19 informations 
+ # Angular Element for Covid19 informations ( 254kb ) 
  
   ``` npm install @coderbase/ngx-element-covid19```
   
