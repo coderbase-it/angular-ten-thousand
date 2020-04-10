@@ -1,0 +1,11 @@
+img{
+    height: 100px;
+    padding: 1px;
+    width: 100px;
+}
+
+.container{
+    flex-wrap: wrap;
+    justify-content: space-between;
+    display: flex;
+}

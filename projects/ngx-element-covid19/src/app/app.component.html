@@ -1,4 +1,4 @@
-<div class="container">
+<div >
     <h1 class="title">
         Statistiques du Covid 19
     </h1>
@@ -8,11 +8,24 @@
     <div>
         <div class="error"></div>
         <div class="info"></div>
+
         <div class="mb-4" *ngIf="countries$ | push as countries">
             <select name="countries" id="countries" [formControl]="FormControlCountries">
                 <option [value]="c.iso2" *ngFor="let c of countries"> {{c.name}}</option>
             </select>
+            <div class="container" >
+                <div class="country" *ngFor="let c of countries">
+                    <div class="name" >
+                        <span class="alpha-2">{{c.iso2 | uppercase}}</span>
+                        {{c.name}}
+                    </div>
+                    <img *ngIf="c.iso2" class="flag" src="assets/flags/4x3/{{c.iso2 | lowercase}}.svg" >
+                    <img *ngIf="!c.iso2" class="flag" src="assets/flags/4x3/default.svg" >
+                </div>
+            </div>
         </div>
+
+
         <div class="country-stats"></div>
     </div>
 </div>

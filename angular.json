@@ -409,7 +409,8 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "ngx-build-plus:browser",
+
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/ngx-element-covid19",
             "index": "projects/ngx-element-covid19/src/index.html",
@@ -419,28 +420,20 @@
             "aot": true,
             "assets": [
               "projects/ngx-element-covid19/src/favicon.ico",
-              "projects/ngx-element-covid19/src/assets"
+              "projects/ngx-element-covid19/src/assets",
+                {
+                    "glob": "*.svg",
+                    "input": "node_modules/flag-icon-css/flags/4x3/",
+                    "output": "assets/flags/4x3/"
+                }
             ],
             "styles": [
               "projects/ngx-element-covid19/src/styles.scss"
             ],
             "scripts": [
-              {
-                "bundleName": "polyfill-webcomp-es5",
-                "input": "node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js"
-              },
-              {
-                "bundleName": "polyfill-webcomp",
-                "input": "node_modules/@webcomponents/webcomponentsjs/bundles/webcomponents-sd-ce-pf.js"
-              },
-              "node_modules/rxjs/bundles/rxjs.umd.js",
-              "node_modules/@angular/core/bundles/core.umd.js",
-              "node_modules/@angular/common/bundles/common.umd.js",
-              "node_modules/@angular/common/bundles/common-http.umd.js",
-              "node_modules/@angular/compiler/bundles/compiler.umd.js",
-              "node_modules/@angular/elements/bundles/elements.umd.js",
-              "node_modules/@angular/platform-browser/bundles/platform-browser.umd.js",
-              "node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js"
+                {
+                    "input": "node_modules/document-register-element/build/document-register-element.js"
+                }
             ]
           },
           "configurations": {
@@ -452,7 +445,8 @@
                 }
               ],
               "optimization": true,
-              "outputHashing": "all",
+                "aot": true,
+                "outputHashing": "none",
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
@@ -475,7 +469,7 @@
           }
         },
         "serve": {
-          "builder": "ngx-build-plus:dev-server",
+          "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "ngx-element-covid19:build"
           },
@@ -492,7 +486,7 @@
           }
         },
         "test": {
-          "builder": "ngx-build-plus:karma",
+          "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "projects/ngx-element-covid19/src/test.ts",
             "polyfills": "projects/ngx-element-covid19/src/polyfills.ts",
