@@ -3,6 +3,7 @@
 ### Anyone can bring his own project from the smaller librairie to the biggest one 
 ### And also pull request current 
 
+Angular 9.1
 [![angular-open-source-starter](https://img.shields.io/badge/made%20with-angular--open--source--starter-d81676?logo=angular)](https://github.com/TinkoffCreditSystems/angular-open-source-starter)
 
 ## Librairie
@@ -73,10 +74,4 @@
 6.  You can add more libraries using the same `npm run add` command to create a whole Angular Workspace
     with multiple libraries. Versioning and publishing is configured that they are released simultaneously like Angular packages.
 
-## Angular 8
-
-Don't need your library to support Angular 7 and below? Run following command to update packages for Angular 8+:
-
-    ng update @angular/cli @angular/compiler-cli @angular/core @nguniversal/common tsickle
-    
 
